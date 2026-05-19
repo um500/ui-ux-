@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
-import { Heart, ShoppingCart, Search, Menu, User, ChevronDown } from 'lucide-react'
+import { Heart, ShoppingCart, Search, Menu, ChevronDown } from 'lucide-react'
 import { useState, useRef, useEffect } from 'react'
 import { useCart } from '@/context/cart-context'
 import MobileMenu from './MobileMenu'
@@ -187,13 +187,15 @@ export default function Navbar() {
               <button
                 onClick={() => setIsSearchOpen(true)}
                 className="p-2 hover:bg-muted rounded-full transition-colors"
+                aria-label="Search"
               >
                 <Search className="w-5 h-5 text-foreground" />
               </button>
 
               <Link
                 href="/wishlist"
-                className="p-2 hover:bg-muted rounded-full transition-colors relative hidden sm:flex"
+                className="p-2 hover:bg-muted rounded-full transition-colors relative"
+                aria-label="Wishlist"
               >
                 <Heart className="w-5 h-5 text-foreground" />
                 {wishlistCount > 0 && (
@@ -206,6 +208,7 @@ export default function Navbar() {
               <Link
                 href="/cart"
                 className="p-2 hover:bg-muted rounded-full transition-colors relative"
+                aria-label="Cart"
               >
                 <ShoppingCart className="w-5 h-5 text-foreground" />
                 {cartCount > 0 && (
@@ -215,14 +218,11 @@ export default function Navbar() {
                 )}
               </Link>
 
-              <button className="p-2 hover:bg-muted rounded-full transition-colors hidden sm:flex">
-                <User className="w-5 h-5 text-foreground" />
-              </button>
-
               {/* Mobile Menu Button */}
               <button
                 className="md:hidden p-2 hover:bg-muted rounded-full"
                 onClick={() => setIsMenuOpen(true)}
+                aria-label="Menu"
               >
                 <Menu className="w-5 h-5" />
               </button>
@@ -242,7 +242,7 @@ export default function Navbar() {
       <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
 
       {/* Bottom Navigation for Mobile */}
-      <BottomNav onSearchClick={() => setIsSearchOpen(true)} />
+      <BottomNav />
     </>
   )
 }
