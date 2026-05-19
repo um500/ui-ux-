@@ -95,7 +95,7 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Menu - Centered */}
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden lg:flex items-center justify-center flex-1 gap-8">
               <Link
                 href="/"
                 className="text-sm font-medium text-foreground hover:text-primary transition-colors"
@@ -220,7 +220,7 @@ export default function Navbar() {
 
               {/* Mobile Menu Button */}
               <button
-                className="md:hidden p-2 hover:bg-muted rounded-full"
+                className="lg:hidden p-2 hover:bg-muted rounded-full"
                 onClick={() => setIsMenuOpen(true)}
                 aria-label="Menu"
               >

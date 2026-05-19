@@ -11,7 +11,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
-      <main className="flex-1 pb-16 md:pb-0">
+      <main className="flex-1 pb-16 lg:pb-0">
         {children}
       </main>
       <Footer />
