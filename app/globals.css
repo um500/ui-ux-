@@ -1,0 +1,229 @@
+@import 'tailwindcss';
+@source "../components/**/*.tsx";
+@source "../app/**/*.tsx";
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Premium Soft-Luxury Color System */
+  /* Primary Brand Color - Olive Sage Green */
+  --primary: #7E8B5B;
+  --primary-foreground: #FFFFFF;
+  
+  /* Main Background - Warm Ivory */
+  --background: #F8F2E8;
+  --foreground: #3E3A35;
+  
+  /* Card & Surface Colors */
+  --card: #FFFFFF;
+  --card-foreground: #3E3A35;
+  --popover: #FFFFFF;
+  --popover-foreground: #3E3A35;
+  
+  /* Secondary - Dusty Blue */
+  --secondary: #AFC8D6;
+  --secondary-foreground: #3E3A35;
+  
+  /* Muted - Soft Sand */
+  --muted: #EFE4D3;
+  --muted-foreground: #6E675F;
+  
+  /* Accent - Muted Mustard */
+  --accent: #D4B15A;
+  --accent-foreground: #3E3A35;
+  
+  /* Destructive */
+  --destructive: #C9876B;
+  --destructive-foreground: #FFFFFF;
+  
+  /* Border & Input */
+  --border: #E8DFD0;
+  --input: #F5EDE0;
+  --ring: #7E8B5B;
+  
+  /* Section Colors */
+  --section-bath: #E8F2F5;
+  --section-bedding: #E6EDDF;
+  --section-bags: #F0EBE4;
+  --section-accessories: #F4E8E4;
+  --section-clothing: #EFE4D3;
+  --section-mom: #FBF5F2;
+  --section-gifts: #F5EDE0;
+  
+  /* Accent Colors */
+  --dusty-blue: #AFC8D6;
+  --muted-mustard: #D4B15A;
+  --soft-terracotta: #C9876B;
+  --warm-brown: #8B6B5C;
+  --warm-blush: #F4E8E4;
+  --light-sage: #E6EDDF;
+  --soft-sand: #EFE4D3;
+  
+  /* Chart Colors */
+  --chart-1: #7E8B5B;
+  --chart-2: #AFC8D6;
+  --chart-3: #D4B15A;
+  --chart-4: #C9876B;
+  --chart-5: #8B6B5C;
+  
+  --radius: 1.5rem;
+  
+  /* Sidebar */
+  --sidebar: #F8F2E8;
+  --sidebar-foreground: #3E3A35;
+  --sidebar-primary: #7E8B5B;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #EFE4D3;
+  --sidebar-accent-foreground: #3E3A35;
+  --sidebar-border: #E8DFD0;
+  --sidebar-ring: #7E8B5B;
+}
+
+.dark {
+  --primary: #9AA87A;
+  --primary-foreground: #1A1918;
+  --background: #1A1918;
+  --foreground: #F5EDE0;
+  --card: #252321;
+  --card-foreground: #F5EDE0;
+  --popover: #252321;
+  --popover-foreground: #F5EDE0;
+  --secondary: #5A7A8A;
+  --secondary-foreground: #F5EDE0;
+  --muted: #3A3735;
+  --muted-foreground: #A8A098;
+  --accent: #B89840;
+  --accent-foreground: #F5EDE0;
+  --destructive: #A86B55;
+  --destructive-foreground: #F5EDE0;
+  --border: #3A3735;
+  --input: #3A3735;
+  --ring: #9AA87A;
+  --sidebar: #1A1918;
+  --sidebar-foreground: #F5EDE0;
+  --sidebar-primary: #9AA87A;
+  --sidebar-primary-foreground: #1A1918;
+  --sidebar-accent: #3A3735;
+  --sidebar-accent-foreground: #F5EDE0;
+  --sidebar-border: #3A3735;
+  --sidebar-ring: #9AA87A;
+}
+
+@theme inline {
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-baloo), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  
+  /* Section Colors */
+  --color-section-bath: var(--section-bath);
+  --color-section-bedding: var(--section-bedding);
+  --color-section-bags: var(--section-bags);
+  --color-section-accessories: var(--section-accessories);
+  --color-section-clothing: var(--section-clothing);
+  --color-section-mom: var(--section-mom);
+  --color-section-gifts: var(--section-gifts);
+  
+  /* Brand Accent Colors */
+  --color-dusty-blue: var(--dusty-blue);
+  --color-muted-mustard: var(--muted-mustard);
+  --color-soft-terracotta: var(--soft-terracotta);
+  --color-warm-brown: var(--warm-brown);
+  --color-warm-blush: var(--warm-blush);
+  --color-light-sage: var(--light-sage);
+  --color-soft-sand: var(--soft-sand);
+  
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 16px);
+  
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+/* Premium Typography */
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+/* Text Balance for Headlines */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Selection Color */
+::selection {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
