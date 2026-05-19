@@ -1,0 +1,105 @@
+'use client'
+
+import HeroSection from './HeroSection'
+import FeaturedCategories from './FeaturedCategories'
+import CategorySection from './CategorySection'
+import MomSection from './MomSection'
+import TrustSection from './TrustSection'
+import InstagramSection from './InstagramSection'
+import { allProducts } from '@/data/products'
+
+// Get products by category
+const getProductsByCategory = (category: string) => {
+  return allProducts.filter(
+    (p) => p.category.toLowerCase() === category.toLowerCase()
+  )
+}
+
+export default function Home() {
+  const bathLinenProducts = getProductsByCategory('Bath Linen')
+  const beddingProducts = getProductsByCategory('Bedding')
+  const bagsProducts = getProductsByCategory('Bags')
+  const accessoriesProducts = getProductsByCategory('Kids Accessories')
+  const clothingProducts = getProductsByCategory('Clothing')
+  const momProducts = allProducts.filter((p) => p.category === 'clothing') // Mom's corner products
+  const giftProducts = getProductsByCategory('Return Gifts')
+
+  return (
+    <>
+      <HeroSection />
+      <FeaturedCategories />
+
+      {/* Bath Linen */}
+      <CategorySection
+        title="Bath Linen"
+        subtitle="Soft & Fresh"
+        description="Breathable, absorbent towels and robes crafted from the finest organic cotton"
+        products={bathLinenProducts}
+        href="/category/bath-linen"
+        bgColor="bg-section-bath"
+        accentColor="text-dusty-blue"
+      />
+
+      {/* Bedding */}
+      <CategorySection
+        title="Bedding"
+        subtitle="Comfort & Warmth"
+        description="Handcrafted quilts and dohars for peaceful slumber and cozy moments"
+        products={beddingProducts}
+        href="/category/bedding"
+        bgColor="bg-section-bedding"
+        accentColor="text-primary"
+      />
+
+      {/* Bags */}
+      <CategorySection
+        title="Bags"
+        subtitle="Playful Utility"
+        description="Quilted cotton bags with charming prints for everyday adventures"
+        products={bagsProducts}
+        href="/category/bags"
+        bgColor="bg-section-bags"
+        accentColor="text-warm-brown"
+      />
+
+      {/* Kids Accessories */}
+      <CategorySection
+        title="Kids Accessories"
+        subtitle="Creative Curiosity"
+        description="Thoughtfully designed accessories for play, rest, and creative exploration"
+        products={accessoriesProducts}
+        href="/category/kids-accessories"
+        bgColor="bg-section-accessories"
+        accentColor="text-soft-terracotta"
+      />
+
+      {/* Clothing */}
+      <CategorySection
+        title="Clothing"
+        subtitle="Premium Kids Fashion"
+        description="Hand block printed dresses and comfortable cotton wear for little ones"
+        products={clothingProducts}
+        href="/category/clothing"
+        bgColor="bg-section-clothing"
+        accentColor="text-muted-mustard"
+      />
+
+      {/* Mom's Corner - Special Section */}
+      <MomSection products={momProducts.length > 0 ? momProducts : bathLinenProducts} />
+
+      {/* Return Gifts */}
+      <CategorySection
+        title="Return Gifts"
+        subtitle="Celebrate in Style"
+        description="Premium gift hampers and curated boxes for every special celebration"
+        products={giftProducts}
+        href="/category/return-gifts"
+        bgColor="bg-section-gifts"
+        accentColor="text-muted-mustard"
+      />
+
+      <TrustSection />
+      <InstagramSection />
+    </>
+  )
+}

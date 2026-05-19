@@ -192,9 +192,13 @@
   font-family: var(--font-heading);
 }
 
-/* Smooth Scrolling */
-html {
+/* Smooth Scrolling - with Next.js compatibility */
+html[data-scroll-behavior="smooth"] {
   scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: auto;
 }
 
 /* Premium Scrollbar */
@@ -226,4 +230,26 @@ html {
 ::selection {
   background-color: var(--primary);
   color: var(--primary-foreground);
+}
+
+/* Safe Area for Mobile Bottom Navigation */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* Hide scrollbar for horizontal scroll areas */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Improved touch targets for mobile */
+@media (pointer: coarse) {
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }
